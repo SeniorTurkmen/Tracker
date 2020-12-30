@@ -1,63 +1,63 @@
 import 'package:flutter/material.dart';
 
-enum HomeModelStatus {
+enum DriverHomeModelStatus {
   Ended,
   Loading,
   Error,
 }
 
-class HomeModel extends ChangeNotifier {
-  HomeModelStatus _status;
+class DriverHomeModel extends ChangeNotifier {
+  DriverHomeModelStatus _status;
   String _errorCode;
   String _errorMessage;
 
   String get errorCode => _errorCode;
   String get errorMessage => _errorMessage;
-  HomeModelStatus get status => _status;
+  DriverHomeModelStatus get status => _status;
 
-  HomeModel();
+  DriverHomeModel();
 
-  HomeModel.instance() {
+  DriverHomeModel.instance() {
     //TODO Add code here
   }
   
   void getter() {
-    _status = HomeModelStatus.Loading;
+    _status = DriverHomeModelStatus.Loading;
     notifyListeners();
 
     //TODO Add code here
 
-    _status = HomeModelStatus.Ended;
+    _status = DriverHomeModelStatus.Ended;
     notifyListeners();
   }
 
   void setter() {
-    _status = HomeModelStatus.Loading;
+    _status = DriverHomeModelStatus.Loading;
     notifyListeners();
 
     //TODO Add code here
     
-    _status = HomeModelStatus.Ended;
+    _status = DriverHomeModelStatus.Ended;
     notifyListeners();
   }
 
   void update() {
-    _status = HomeModelStatus.Loading;
+    _status = DriverHomeModelStatus.Loading;
     notifyListeners();
 
     //TODO Add code here
     
-    _status = HomeModelStatus.Ended;
+    _status = DriverHomeModelStatus.Ended;
     notifyListeners();
   }
 
   void remove() {
-    _status = HomeModelStatus.Loading;
+    _status = DriverHomeModelStatus.Loading;
     notifyListeners();
 
     //TODO Add code here
     
-    _status = HomeModelStatus.Ended;
+    _status = DriverHomeModelStatus.Ended;
     notifyListeners();
   }
 }

@@ -1,4 +1,6 @@
+import 'package:Tracker/components/util/color_util.dart';
 import 'package:Tracker/components/util/screen_util.dart';
+import 'package:Tracker/models/driver_home/driver_home_model.dart';
 import 'package:Tracker/models/login/login_model.dart';
 import 'package:Tracker/views/splash/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -25,8 +27,14 @@ class MyApp extends StatelessWidget {
                 ChangeNotifierProvider(
                   create: (context) => LoginModel(),
                 ),
+                ChangeNotifierProvider(
+                  create: (context) => DriverHomeModel(),
+                ),
               ],
               child: MaterialApp(
+                theme: ThemeData(
+                    primaryColor: HexColor(hexColor: "FFD64D"),
+                    buttonColor: HexColor(hexColor: "000000")),
                 debugShowCheckedModeBanner: false,
                 home: SplashScreen(),
               ),

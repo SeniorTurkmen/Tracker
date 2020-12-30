@@ -1,31 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 // import model
-import 'package:Tracker/models/home/home_model.dart';
+import 'package:Tracker/models/driver_home/driver_home_model.dart';
 
-class HomeController {
-  HomeController();
+class DriverHomeController {
+  DriverHomeController();
   
   void getter(BuildContext context) {
-    HomeModel viewModel = Provider.of<HomeModel>(context, listen: false);
+    DriverHomeModel viewModel = Provider.of<DriverHomeModel>(context, listen: false);
     //TODO Add code here for getter
     viewModel.getter();
   }
 
   void setter(BuildContext context) {
-    HomeModel viewModel = Provider.of<HomeModel>(context, listen: false);
+    DriverHomeModel viewModel = Provider.of<DriverHomeModel>(context, listen: false);
     //TODO Add code here for setter
     viewModel.setter();
   }
 
   void update(BuildContext context) {
-    HomeModel viewModel = Provider.of<HomeModel>(context, listen: false);
+    DriverHomeModel viewModel = Provider.of<DriverHomeModel>(context, listen: false);
     //TODO Add code here for update
     viewModel.update();
   }
 
   void remove(BuildContext context) {
-    HomeModel viewModel = Provider.of<HomeModel>(context, listen: false);
+    DriverHomeModel viewModel = Provider.of<DriverHomeModel>(context, listen: false);
     //TODO Add code here for remove
     viewModel.remove();
   }

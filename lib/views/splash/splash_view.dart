@@ -1,5 +1,5 @@
 import 'package:Tracker/components/util/screen_util.dart';
-import 'package:Tracker/views/home/home_view.dart';
+import 'package:Tracker/views/driver_home/driver_home_view.dart';
 import 'package:after_init/after_init.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,10 +14,10 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 5), () {
-      Navigator.push(
+    Future.delayed(Duration(seconds: 2), () {
+      Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => HomeView()),
+        MaterialPageRoute(builder: (context) => DriverHomeView()),
       );
     });
   }
@@ -56,24 +56,17 @@ This will be a good place to load states and shared prefs.
               height: 43.19 * SizeConfig.heightMultiplier,
               width: 93.45 * SizeConfig.widthMultiplier,
               decoration: BoxDecoration(
-                  color: Colors.deepOrangeAccent, shape: BoxShape.circle),
+                  color: Theme.of(context).primaryColor,
+                  shape: BoxShape.circle),
               child: Center(
-                child: Text(
-                  'FOOD DELIVERY APP',
-                  style: GoogleFonts.hennyPenny(
-                    textStyle: TextStyle(
-                        color: Colors.green[300],
-                        fontSize: 4 * SizeConfig.textMultiplier,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
+                child: Image.asset("assets/img/bus.png"),
               ),
             ),
             SizedBox(
               height: 3.35 * SizeConfig.heightMultiplier,
             ),
             Text(
-              'order your food with pleasure',
+              'Safety way to follow your child',
               style: GoogleFonts.titilliumWeb(
                 textStyle: TextStyle(
                     color: Colors.green[800],
@@ -97,7 +90,7 @@ This will be a good place to load states and shared prefs.
                   ),
                 ),
                 Text(
-                  ' 1.1.01',
+                  ' 0.0.01',
                   style: GoogleFonts.titilliumWeb(
                     textStyle: TextStyle(
                         color: Colors.green[800],
