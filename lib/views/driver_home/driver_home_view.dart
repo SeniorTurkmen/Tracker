@@ -1,7 +1,13 @@
+import 'dart:math';
+
 import 'package:Tracker/components/layout/appbar.dart';
 import 'package:Tracker/components/util/screen_util.dart';
+import 'package:Tracker/models/data_model/parent_data_model.dart';
+import 'package:Tracker/models/data_model/user_data_model.dart';
 import 'package:Tracker/views/driver_home/layouts/header.dart';
+import 'package:Tracker/views/driver_home/layouts/student_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 // import model
 import 'package:Tracker/models/driver_home/driver_home_model.dart';
@@ -9,9 +15,11 @@ import 'package:Tracker/models/driver_home/driver_home_model.dart';
 import 'package:Tracker/controllers/driver_home/driver_home_controller.dart';
 
 class DriverHomeView extends StatelessWidget {
+  static const routeName = "/driver-home";
   @override
   Widget build(BuildContext context) {
     DriverHomeController viewController = DriverHomeController();
+    viewController.setter(context);
     return ChangeNotifierProvider<DriverHomeModel>(
       create: (context) => DriverHomeModel.instance(),
       child: Consumer<DriverHomeModel>(
@@ -19,6 +27,7 @@ class DriverHomeView extends StatelessWidget {
           return Scaffold(
             body: CustomScrollView(
               slivers: [
+                //Header Section
                 SliverAppBar(
                   centerTitle: true,
                   title: Text("DriverHome"),
@@ -42,12 +51,13 @@ class DriverHomeView extends StatelessWidget {
                     child: Container(),
                   ),
                 ),
+                //Student List Section
                 SliverList(
-                    delegate: SliverChildListDelegate([
-                  Container(
-                    height: SizeConfig.heightMultiplier * 150,
-                  )
-                ]))
+                    delegate: SliverChildBuilderDelegate(
+                        (BuildContext ctx, int index) => Expanded(
+                            child: StudentCard(
+                                student: viewModel.studentData[index])),
+                        childCount: students.length))
               ],
             ),
           );

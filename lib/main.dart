@@ -2,7 +2,9 @@ import 'package:Tracker/components/util/color_util.dart';
 import 'package:Tracker/components/util/screen_util.dart';
 import 'package:Tracker/models/driver_home/driver_home_model.dart';
 import 'package:Tracker/models/login/login_model.dart';
+import 'package:Tracker/views/driver_home/driver_home_view.dart';
 import 'package:Tracker/views/splash/splash_view.dart';
+import 'package:Tracker/views/student_detail/student_detail_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -32,6 +34,10 @@ class MyApp extends StatelessWidget {
                 ),
               ],
               child: MaterialApp(
+                routes: {
+                  DriverHomeView.routeName: (ctx) => DriverHomeView(),
+                  StudentDetailView.routeName: (ctx) => StudentDetailView()
+                },
                 theme: ThemeData(
                     primaryColor: HexColor(hexColor: "FFD64D"),
                     buttonColor: HexColor(hexColor: "000000")),

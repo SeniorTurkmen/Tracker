@@ -21,9 +21,17 @@ class _HeaderState extends State<Header> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Spacer(),
+
+            Padding(
+              padding: EdgeInsets.symmetric(
+                  vertical: SizeConfig.heightMultiplier * 1),
+              child: Text("Enter the user number or search the qr code"),
+            ),
+            // Text Field and qr code scanner
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                // text Field
                 Container(
                   width: SizeConfig.widthMultiplier * 60,
                   decoration: getDecoration(color: Colors.white),
@@ -35,6 +43,7 @@ class _HeaderState extends State<Header> {
                         alignLabelWithHint: false),
                   ),
                 ),
+                // QR code scann button
                 GestureDetector(
                   child: Container(
                     padding:
@@ -50,6 +59,7 @@ class _HeaderState extends State<Header> {
             SizedBox(
               height: SizeConfig.heightMultiplier * 4,
             ),
+            // Search field button
             GestureDetector(
               child: Container(
                   decoration:
@@ -58,7 +68,7 @@ class _HeaderState extends State<Header> {
                   height: SizeConfig.heightMultiplier * 5,
                   width: SizeConfig.widthMultiplier * 70,
                   child: Text(
-                    "Scan the Student",
+                    "Search the Student",
                     style: TextStyle(color: Colors.white),
                   )),
             ),
