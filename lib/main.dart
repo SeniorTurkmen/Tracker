@@ -34,10 +34,6 @@ class MyApp extends StatelessWidget {
                 ),
               ],
               child: MaterialApp(
-                routes: {
-                  DriverHomeView.routeName: (ctx) => DriverHomeView(),
-                  StudentDetailView.routeName: (ctx) => StudentDetailView()
-                },
                 theme: ThemeData(
                     primaryColor: HexColor(hexColor: "FFD64D"),
                     buttonColor: HexColor(hexColor: "000000")),

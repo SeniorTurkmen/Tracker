@@ -1,5 +1,6 @@
 import 'package:Tracker/components/util/screen_util.dart';
 import 'package:Tracker/views/driver_home/driver_home_view.dart';
+import 'package:Tracker/views/driver_tabs/driver_tabs.dart';
 import 'package:after_init/after_init.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen>
     Future.delayed(Duration(seconds: 2), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => DriverHomeView()),
+        MaterialPageRoute(builder: (context) => DriverTabs()),
       );
     });
   }

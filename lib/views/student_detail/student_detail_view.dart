@@ -1,3 +1,5 @@
+import 'package:Tracker/components/layout/button/button.dart';
+import 'package:Tracker/components/util/color_util.dart';
 import 'package:Tracker/components/util/get_delivery_status.dart';
 import 'package:Tracker/components/util/get_student_status.dart';
 import 'package:Tracker/components/util/screen_util.dart';
@@ -157,7 +159,35 @@ class StudentDetailView extends StatelessWidget {
                                 )
                               ],
                             ),
-                          )
+                          ),
+                          Spacer(),
+                          // mark on vehicle
+                          Container(
+                            margin: EdgeInsets.symmetric(
+                                vertical: SizeConfig.heightMultiplier * 1),
+                            child: Button(
+                                color: HexColor(hexColor: "FFCF0F"),
+                                child: Text("Mark on Vehicle"),
+                                height: SizeConfig.heightMultiplier * 7,
+                                width: SizeConfig.widthMultiplier * 90,
+                                onPress: student.status == Status.inBus
+                                    ? null
+                                    : () {}),
+                          ),
+                          // mark as next student
+                          Container(
+                            margin: EdgeInsets.symmetric(
+                                vertical: SizeConfig.heightMultiplier * 1),
+                            child: Button(
+                                color: HexColor(hexColor: "FDB132"),
+                                child: Text("Mark as Next Student"),
+                                height: SizeConfig.heightMultiplier * 7,
+                                width: SizeConfig.widthMultiplier * 90,
+                                onPress: student.status == Status.next ||
+                                        student.status == Status.inBus
+                                    ? null
+                                    : () {}),
+                          ),
                         ],
                       ),
                     ),
