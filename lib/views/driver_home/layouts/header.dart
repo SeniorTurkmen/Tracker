@@ -1,6 +1,8 @@
 import 'package:Tracker/components/util/screen_util.dart';
 import 'package:Tracker/components/layout/decoration.dart';
+import 'package:Tracker/views/student_detail/student_detail_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Header extends StatefulWidget {
   Header({Key key}) : super(key: key);
@@ -10,6 +12,7 @@ class Header extends StatefulWidget {
 }
 
 class _HeaderState extends State<Header> {
+  TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,6 +39,8 @@ class _HeaderState extends State<Header> {
                   width: SizeConfig.widthMultiplier * 60,
                   decoration: getDecoration(color: Colors.white),
                   child: TextField(
+                    controller: _controller,
+                    keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                         hintText: "Enter Student Id or read the qr code",
                         filled: true,
@@ -61,6 +66,9 @@ class _HeaderState extends State<Header> {
             ),
             // Search field button
             GestureDetector(
+              onTap: () => Navigator.pushNamed(
+                  context, StudentDetailView.routeName,
+                  arguments: int.parse(_controller.text.toString())),
               child: Container(
                   decoration:
                       getDecoration(color: Theme.of(context).buttonColor),

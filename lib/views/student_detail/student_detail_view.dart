@@ -18,9 +18,9 @@ class StudentDetailView extends StatelessWidget {
     // DriverHomeController viewController = DriverHomeController();
     return Consumer<DriverHomeModel>(
       builder: (ctx, viewModel, child) {
-        print(viewModel.nextStudent);
-        Student student = viewModel.studentData
-            .firstWhere((element) => element.id == studentId);
+        Student student = viewModel.studentData.firstWhere(
+            (element) => element.id == studentId,
+            orElse: () => Student());
         return Scaffold(
             appBar: AppBar(
               title: Text("Student"),
@@ -42,157 +42,183 @@ class StudentDetailView extends StatelessWidget {
                           topRight:
                               Radius.circular(SizeConfig.widthMultiplier * 10)),
                       color: Colors.grey.withOpacity(.1)),
-                  child: Container(
-                    margin: EdgeInsets.symmetric(
-                        vertical: SizeConfig.heightMultiplier * 6,
-                        horizontal: SizeConfig.widthMultiplier * 5),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        // Student Name Section
-                        Text(
-                          student.name + " " + student.surName,
-                          style: TextStyle(
-                              fontSize: SizeConfig.textMultiplier * 3,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        // Parents Section
-                        Padding(
-                          padding: EdgeInsets.only(
-                              top: SizeConfig.heightMultiplier * 3),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Parent",
-                                style: TextStyle(
-                                    fontSize: SizeConfig.textMultiplier * 2.5,
-                                    fontWeight: FontWeight.w800),
-                              ),
-                              // Parent Informations Section
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Text(
-                                    student.parent.name +
-                                        " " +
-                                        student.parent.surName,
-                                    style: TextStyle(
-                                        fontSize: SizeConfig.textMultiplier * 3,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                  Text(
-                                    student.parent.mail,
-                                    style: TextStyle(
-                                        fontSize:
-                                            SizeConfig.textMultiplier * 2.3,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Text(
-                                    student.parent.phone,
-                                    style: TextStyle(
-                                        fontSize:
-                                            SizeConfig.textMultiplier * 2.3,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Text(
-                                    student.parent.adress,
-                                    style: TextStyle(
-                                        fontSize:
-                                            SizeConfig.textMultiplier * 2.3,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                ],
-                              )
-                            ],
+                  child: student.id == null
+                      ? Center(
+                          child: Container(
+                            width: SizeConfig.widthMultiplier * 80,
+                            child: Text(
+                              "This is not a real student number or He/She not your defined student",
+                              textAlign: TextAlign.center,
+                              overflow: TextOverflow.clip,
+                            ),
                           ),
-                        ),
-                        // Status Section
-                        Padding(
-                          padding: EdgeInsets.only(
-                              top: SizeConfig.heightMultiplier * 3),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Status",
-                                style: TextStyle(
-                                    fontSize: SizeConfig.textMultiplier * 2.5,
-                                    fontWeight: FontWeight.w800),
-                              ),
-                              // Student Status Section
-                              Text(
-                                getStatus(student.status),
-                                style: TextStyle(
-                                    fontSize: SizeConfig.textMultiplier * 2.5,
-                                    fontWeight: FontWeight.w400),
-                              )
-                            ],
-                          ),
-                        ),
-                        //Delivery Section
-                        Padding(
-                          padding: EdgeInsets.only(
-                              top: SizeConfig.heightMultiplier * 3),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Delivery Status",
-                                style: TextStyle(
-                                    fontSize: SizeConfig.textMultiplier * 2.5,
-                                    fontWeight: FontWeight.w800),
-                              ),
-                              // Student delivery Status Section
-                              Text(
-                                getDeliveryStatus(student.deliveryStatus),
-                                style: TextStyle(
-                                    fontSize: SizeConfig.textMultiplier * 2.5,
-                                    fontWeight: FontWeight.w400),
-                              )
-                            ],
-                          ),
-                        ),
-                        Spacer(),
-                        // mark on vehicle
-                        Container(
+                        )
+                      : Container(
                           margin: EdgeInsets.symmetric(
-                              vertical: SizeConfig.heightMultiplier * 1),
-                          child: Button(
-                              color: HexColor(hexColor: "FFCF0F"),
-                              child: Text("Mark on Vehicle"),
-                              height: SizeConfig.heightMultiplier * 7,
-                              width: SizeConfig.widthMultiplier * 90,
-                              onPress: student.status == Status.inBus ||
-                                      student.status != Status.next
-                                  ? null
-                                  : () =>
-                                      viewModel.setStudentInVehicle(studentId)),
+                              vertical: SizeConfig.heightMultiplier * 6,
+                              horizontal: SizeConfig.widthMultiplier * 5),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              // Student Name Section
+                              Text(
+                                student.name + " " + student.surName,
+                                style: TextStyle(
+                                    fontSize: SizeConfig.textMultiplier * 3,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              // Parents Section
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    top: SizeConfig.heightMultiplier * 3),
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Parent",
+                                      style: TextStyle(
+                                          fontSize:
+                                              SizeConfig.textMultiplier * 2.5,
+                                          fontWeight: FontWeight.w800),
+                                    ),
+                                    // Parent Informations Section
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        Text(
+                                          student.parent.name +
+                                              " " +
+                                              student.parent.surName,
+                                          style: TextStyle(
+                                              fontSize:
+                                                  SizeConfig.textMultiplier * 3,
+                                              fontWeight: FontWeight.w500),
+                                        ),
+                                        Text(
+                                          student.parent.mail,
+                                          style: TextStyle(
+                                              fontSize:
+                                                  SizeConfig.textMultiplier *
+                                                      2.3,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                        Text(
+                                          student.parent.phone,
+                                          style: TextStyle(
+                                              fontSize:
+                                                  SizeConfig.textMultiplier *
+                                                      2.3,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                        Text(
+                                          student.parent.adress,
+                                          style: TextStyle(
+                                              fontSize:
+                                                  SizeConfig.textMultiplier *
+                                                      2.3,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                              // Status Section
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    top: SizeConfig.heightMultiplier * 3),
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Status",
+                                      style: TextStyle(
+                                          fontSize:
+                                              SizeConfig.textMultiplier * 2.5,
+                                          fontWeight: FontWeight.w800),
+                                    ),
+                                    // Student Status Section
+                                    Text(
+                                      getStatus(student.status),
+                                      style: TextStyle(
+                                          fontSize:
+                                              SizeConfig.textMultiplier * 2.5,
+                                          fontWeight: FontWeight.w400),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              //Delivery Section
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    top: SizeConfig.heightMultiplier * 3),
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Delivery Status",
+                                      style: TextStyle(
+                                          fontSize:
+                                              SizeConfig.textMultiplier * 2.5,
+                                          fontWeight: FontWeight.w800),
+                                    ),
+                                    // Student delivery Status Section
+                                    Text(
+                                      getDeliveryStatus(student.deliveryStatus),
+                                      style: TextStyle(
+                                          fontSize:
+                                              SizeConfig.textMultiplier * 2.5,
+                                          fontWeight: FontWeight.w400),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Spacer(),
+                              // mark on vehicle
+                              Container(
+                                margin: EdgeInsets.symmetric(
+                                    vertical: SizeConfig.heightMultiplier * 1),
+                                child: Button(
+                                    color: HexColor(hexColor: "FFCF0F"),
+                                    child: Text("Mark on Vehicle"),
+                                    height: SizeConfig.heightMultiplier * 7,
+                                    width: SizeConfig.widthMultiplier * 90,
+                                    onPress: student.status == Status.inBus ||
+                                            student.status != Status.next
+                                        ? null
+                                        : () => viewModel
+                                            .setStudentInVehicle(studentId)),
+                              ),
+                              // mark as next student
+                              Container(
+                                margin: EdgeInsets.symmetric(
+                                    vertical: SizeConfig.heightMultiplier * 1),
+                                child: Button(
+                                    color: HexColor(hexColor: "FDB132"),
+                                    child: Text("Mark as Next Student"),
+                                    height: SizeConfig.heightMultiplier * 7,
+                                    width: SizeConfig.widthMultiplier * 90,
+                                    onPress: (student.status == Status.next ||
+                                                student.status ==
+                                                    Status.inBus) ||
+                                            viewModel.isAnyStudentNext
+                                        ? null
+                                        : () => viewModel
+                                            .setNextStudent(studentId)),
+                              ),
+                            ],
+                          ),
                         ),
-                        // mark as next student
-                        Container(
-                          margin: EdgeInsets.symmetric(
-                              vertical: SizeConfig.heightMultiplier * 1),
-                          child: Button(
-                              color: HexColor(hexColor: "FDB132"),
-                              child: Text("Mark as Next Student"),
-                              height: SizeConfig.heightMultiplier * 7,
-                              width: SizeConfig.widthMultiplier * 90,
-                              onPress: (student.status == Status.next ||
-                                          student.status == Status.inBus) ||
-                                      viewModel.isAnyStudentNext
-                                  ? null
-                                  : () => viewModel.setNextStudent(studentId)),
-                        ),
-                      ],
-                    ),
-                  ),
                 )));
       },
     );

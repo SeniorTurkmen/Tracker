@@ -71,6 +71,7 @@ class _NextStudentViewState extends State<NextStudentView> {
                       _marker.add(Marker(
                           markerId: MarkerId('NextStud'),
                           icon: marker,
+                          consumeTapEvents: false,
                           position: viewModel.nextStudent.pos,
                           infoWindow: InfoWindow(
                               title: viewModel.nextStudent.name +
@@ -86,15 +87,4 @@ class _NextStudentViewState extends State<NextStudentView> {
       },
     );
   }
-
-  /* Future<void> _goToTheLake() async {
-    controller = await _controller.future;
-    setState(() {
-      isFirst = !isFirst;
-    });
-    isFirst
-        ? controller.animateCamera(CameraUpdate.newCameraPosition(_kGooglePlex))
-        : controller
-            .animateCamera(CameraUpdate.newCameraPosition(_targetPos(pos)));
-  } */
 }

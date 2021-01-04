@@ -1,4 +1,5 @@
 import 'package:Tracker/components/layout/custom_bottom_bar/tab_item.dart';
+import 'package:Tracker/views/defined_srudent/defined_student_view.dart';
 import 'package:Tracker/views/driver_home/driver_home_view.dart';
 import 'package:Tracker/views/driver_tabs/driver_tabs.dart';
 import 'package:Tracker/views/next_student/next_student_view.dart';
@@ -47,7 +48,8 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
               '/': (ctx) => DriverTabs(),
               DriverHomeView.routeName: (ctx) => DriverHomeView(),
               StudentDetailView.routeName: (ctx) => StudentDetailView(),
-              NextStudentView.routeName: (ctx) => NextStudentView()
+              NextStudentView.routeName: (ctx) => NextStudentView(),
+              DefinedStudentView.routeName: (ctx) => DefinedStudentView()
             },
             navigatorKey: widget.navigatorKeys[showItem],
             builder: (context) => widget.pageBuilder[showItem]);
