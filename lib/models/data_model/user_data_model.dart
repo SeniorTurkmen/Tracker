@@ -1,4 +1,5 @@
 import 'package:Tracker/models/data_model/parent_data_model.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 enum Status {
   inBus,
@@ -21,6 +22,7 @@ class Student {
   DateTime lastUpdate;
   DeliveryStatus deliveryStatus;
   Parent parent;
+  LatLng pos;
 
   Student(
       {this.id,
@@ -29,5 +31,6 @@ class Student {
       this.status,
       this.deliveryStatus,
       this.lastUpdate,
-      this.parent});
+      this.parent,
+      this.pos});
 }

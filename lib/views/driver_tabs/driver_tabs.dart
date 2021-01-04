@@ -1,6 +1,7 @@
 import 'package:Tracker/components/layout/custom_bottom_bar/custom_bottom_nav_bar.dart';
 import 'package:Tracker/components/layout/custom_bottom_bar/tab_item.dart';
 import 'package:Tracker/views/driver_home/driver_home_view.dart';
+import 'package:Tracker/views/next_student/next_student_view.dart';
 import 'package:flutter/material.dart';
 
 class DriverTabs extends StatefulWidget {
@@ -22,6 +23,7 @@ class _DriverTabsState extends State<DriverTabs> {
   Map<TabItem, Widget> allPages() {
     return {
       TabItem.Home: DriverHomeView(),
+      TabItem.NextStudent: NextStudentView(),
     };
   }
 

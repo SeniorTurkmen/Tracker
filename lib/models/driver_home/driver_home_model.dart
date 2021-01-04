@@ -1,6 +1,7 @@
-import 'package:Tracker/models/data_model/parent_data_model.dart';
 import 'package:flutter/material.dart';
+import 'package:Tracker/models/data_model/parent_data_model.dart';
 import 'package:Tracker/models/data_model/user_data_model.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 enum DriverHomeModelStatus {
   Ended,
@@ -14,8 +15,9 @@ List<Student> students = [
       name: "Jhon",
       surName: "Sawyer",
       deliveryStatus: DeliveryStatus.booth,
-      status: Status.inBus,
+      status: Status.wait,
       lastUpdate: DateTime.now(),
+      pos: LatLng(39.8696, 32.6462),
       parent: Parent(
           name: "Jeremy M",
           surName: "Sawyer",
@@ -28,8 +30,9 @@ List<Student> students = [
       name: "Harry",
       surName: "Henry",
       deliveryStatus: DeliveryStatus.booth,
-      status: Status.inBus,
+      status: Status.wait,
       lastUpdate: DateTime.now(),
+      pos: LatLng(39.7942, 32.6318),
       parent: Parent(
           name: "Sherwood J ",
           surName: "Henry",
@@ -42,8 +45,9 @@ List<Student> students = [
       name: "George",
       surName: "Williams",
       deliveryStatus: DeliveryStatus.booth,
-      status: Status.inBus,
+      status: Status.wait,
       lastUpdate: DateTime.now(),
+      pos: LatLng(39.8401, 32.6977),
       parent: Parent(
           name: "Lorenzo L ",
           surName: "Williams",
@@ -56,8 +60,9 @@ List<Student> students = [
       name: "Clooi",
       surName: "Reagan",
       deliveryStatus: DeliveryStatus.booth,
-      status: Status.inBus,
+      status: Status.wait,
       lastUpdate: DateTime.now(),
+      pos: LatLng(39.8027, 32.7224),
       parent: Parent(
           name: "Danielle R ",
           surName: "Reagan",
@@ -72,15 +77,41 @@ class DriverHomeModel extends ChangeNotifier {
   String _errorCode;
   String _errorMessage;
   List<Student> _studentData;
+  Student _nextStudent;
+  bool _isAnyStudentNext = false;
 
   String get errorCode => _errorCode;
   String get errorMessage => _errorMessage;
   List<Student> get studentData => _studentData;
+  Student get nextStudent => _nextStudent;
+  bool get isAnyStudentNext => _isAnyStudentNext;
 
   DriverHomeModel();
 
   DriverHomeModel.instance() {
     _studentData = students;
+  }
+
+  void setNextStudent(int id) {
+    status = DriverHomeModelStatus.Loading;
+    notifyListeners();
+    _studentData.firstWhere((element) => element.id == id).status = Status.next;
+    _nextStudent = _studentData.firstWhere((element) => element.id == id);
+    _isAnyStudentNext = true;
+    status = DriverHomeModelStatus.Ended;
+    notifyListeners();
+  }
+
+  void setStudentInVehicle(int id) {
+    status = DriverHomeModelStatus.Loading;
+    notifyListeners();
+    _studentData.firstWhere((element) => element.id == id).status =
+        Status.inBus;
+    _nextStudent = null;
+    _isAnyStudentNext = false;
+
+    status = DriverHomeModelStatus.Ended;
+    notifyListeners();
   }
 
   void getter() {

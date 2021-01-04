@@ -2,14 +2,16 @@ import 'package:Tracker/components/util/color_util.dart';
 import 'package:Tracker/components/util/screen_util.dart';
 import 'package:Tracker/models/driver_home/driver_home_model.dart';
 import 'package:Tracker/models/login/login_model.dart';
-import 'package:Tracker/views/driver_home/driver_home_view.dart';
 import 'package:Tracker/views/splash/splash_view.dart';
-import 'package:Tracker/views/student_detail/student_detail_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_google_maps/flutter_google_maps.dart';
 import 'package:provider/provider.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  GoogleMap.init('AIzaSyDsWCMuFTSi9rOnkS15qEg4_DlcIzZU2ms');
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
                   create: (context) => LoginModel(),
                 ),
                 ChangeNotifierProvider(
-                  create: (context) => DriverHomeModel(),
+                  create: (context) => DriverHomeModel.instance(),
                 ),
               ],
               child: MaterialApp(

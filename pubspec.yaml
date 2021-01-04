@@ -16,6 +16,9 @@ dependencies:
     shared_preferences: 0.5.12+4
     http: 0.12.2
     equatable: 1.2.5
+    flutter_google_maps: ^4.0.0
+    geolocator: ^6.1.13
+    google_maps_webservice: ^0.0.19
 
 dev_dependencies:
     flutter_test:

@@ -18,7 +18,7 @@ class StudentCard extends StatelessWidget {
       // Card Design
       child: GestureDetector(
         onTap: () => Navigator.pushNamed(context, StudentDetailView.routeName,
-            arguments: student),
+            arguments: student.id),
         child: Container(
             height: SizeConfig.textMultiplier * 30,
             decoration: BoxDecoration(
