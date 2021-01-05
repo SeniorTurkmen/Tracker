@@ -68,6 +68,7 @@ class _NextStudentViewState extends State<NextStudentView> {
                   onMapCreated: (GoogleMapController ctrllr) {
                     ctrllr.setMapStyle(MapUtils.light);
                     setState(() {
+                      _marker.clear();
                       _marker.add(Marker(
                           markerId: MarkerId('NextStud'),
                           icon: marker,
