@@ -1,5 +1,4 @@
 import 'package:Tracker/components/util/screen_util.dart';
-import 'package:Tracker/views/driver_home/driver_home_view.dart';
 import 'package:Tracker/views/driver_tabs/driver_tabs.dart';
 import 'package:after_init/after_init.dart';
 import 'package:flutter/material.dart';
@@ -23,22 +22,9 @@ class _SplashScreenState extends State<SplashScreen>
     });
   }
 
-/*
-Afterinit package adds didInitState method which is called after initState and before Widget build just for once.
-This will be a good place to load states and shared prefs.
- */
 
   @override
   void didInitState() {
-    /*
-    FoodProvider foodProvider = Provider.of<FoodProvider>(context);
-    //foodProvider.initFoodList();
-    foodProvider.loadFavoriteFoods();
-
-    ApiService service = ApiService(context: context);
-    service.takeData('pizzas');
-    service.takeData('salads');
-    service.takeData('drinks');*/
   }
 
   @override
