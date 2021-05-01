@@ -1,11 +1,11 @@
-import 'package:tracker/components/layout/custom_bottom_bar/tab_item.dart';
-import 'package:tracker/views/defined_srudent/defined_student_view.dart';
-import 'package:tracker/views/driver_home/driver_home_view.dart';
-import 'package:tracker/views/driver_tabs/driver_tabs.dart';
-import 'package:tracker/views/next_student/next_student_view.dart';
-import 'package:tracker/views/student_detail/student_detail_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tracker/components/layout/custom_bottom_bar/tab_item.dart';
+import 'package:tracker/views/driver_view/defined_srudent/defined_student_view.dart';
+import 'package:tracker/views/driver_view/driver_home/driver_home_view.dart';
+import 'package:tracker/views/driver_view/driver_tabs/driver_tabs.dart';
+import 'package:tracker/views/driver_view/next_student/next_student_view.dart';
+import 'package:tracker/views/driver_view/student_detail/student_detail_view.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
   CustomBottomNavBar(
