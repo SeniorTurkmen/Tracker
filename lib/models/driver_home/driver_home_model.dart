@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:Tracker/models/data_model/parent_data_model.dart';
-import 'package:Tracker/models/data_model/user_data_model.dart';
+import 'package:tracker/models/data_model/parent_data_model.dart';
+import 'package:tracker/models/data_model/user_data_model.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 enum DriverHomeModelStatus {

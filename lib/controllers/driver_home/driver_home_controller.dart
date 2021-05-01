@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 // import model
-import 'package:Tracker/models/driver_home/driver_home_model.dart';
+import 'package:tracker/models/driver_home/driver_home_model.dart';
 
 class DriverHomeController {
   DriverHomeController();

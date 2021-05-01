@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 // import model
-import 'package:Tracker/models/login/login_model.dart';
+import 'package:tracker/models/login/login_model.dart';
 
 class LoginController {
   LoginController();
-  
+
   void getter(BuildContext context) {
     LoginModel viewModel = Provider.of<LoginModel>(context, listen: false);
     //TODO Add code here for getter

@@ -1,4 +1,4 @@
-import 'package:Tracker/components/layout/decoration.dart';
+import 'package:tracker/components/layout/decoration.dart';
 import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {

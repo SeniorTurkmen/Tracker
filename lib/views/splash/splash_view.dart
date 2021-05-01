@@ -1,8 +1,8 @@
-import 'package:Tracker/components/util/screen_util.dart';
-import 'package:Tracker/views/driver_tabs/driver_tabs.dart';
 import 'package:after_init/after_init.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tracker/components/util/screen_util.dart';
+import 'package:tracker/views/driver_view/driver_tabs/driver_tabs.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -22,10 +22,8 @@ class _SplashScreenState extends State<SplashScreen>
     });
   }
 
-
   @override
-  void didInitState() {
-  }
+  void didInitState() {}
 
   @override
   Widget build(BuildContext context) {

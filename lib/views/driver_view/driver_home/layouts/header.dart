@@ -1,6 +1,6 @@
-import 'package:Tracker/components/util/screen_util.dart';
-import 'package:Tracker/components/layout/decoration.dart';
-import 'package:Tracker/views/student_detail/student_detail_view.dart';
+import 'package:tracker/components/layout/decoration.dart';
+import 'package:tracker/components/util/screen_util.dart';
+import 'package:tracker/views/driver_view/student_detail/student_detail_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -13,6 +13,7 @@ class Header extends StatefulWidget {
 
 class _HeaderState extends State<Header> {
   TextEditingController _controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(

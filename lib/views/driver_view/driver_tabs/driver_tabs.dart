@@ -1,8 +1,8 @@
-import 'package:Tracker/components/layout/custom_bottom_bar/custom_bottom_nav_bar.dart';
-import 'package:Tracker/components/layout/custom_bottom_bar/tab_item.dart';
-import 'package:Tracker/views/defined_srudent/defined_student_view.dart';
-import 'package:Tracker/views/driver_home/driver_home_view.dart';
-import 'package:Tracker/views/next_student/next_student_view.dart';
+import 'package:tracker/components/layout/custom_bottom_bar/custom_bottom_nav_bar.dart';
+import 'package:tracker/components/layout/custom_bottom_bar/tab_item.dart';
+import 'package:tracker/views/driver_view/defined_srudent/defined_student_view.dart';
+import 'package:tracker/views/driver_view/driver_home/driver_home_view.dart';
+import 'package:tracker/views/driver_view/next_student/next_student_view.dart';
 import 'package:flutter/material.dart';
 
 class DriverTabs extends StatefulWidget {

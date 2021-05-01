@@ -1,4 +1,4 @@
-import 'package:Tracker/components/util/screen_util.dart';
+import 'package:tracker/components/util/screen_util.dart';
 import 'package:flutter/material.dart';
 
 BoxDecoration getDecoration({Color color}) {

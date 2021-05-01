@@ -1,4 +1,4 @@
-import 'package:Tracker/models/data_model/user_data_model.dart';
+import 'package:tracker/models/data_model/user_data_model.dart';
 
 String getDeliveryStatus(DeliveryStatus status) {
   switch (status) {
@@ -8,5 +8,7 @@ String getDeliveryStatus(DeliveryStatus status) {
       return "Scholl to Home";
     case DeliveryStatus.booth:
       return "Home to School \nSchool to Home";
+    default:
+      throw Exception('Not Found');
   }
 }

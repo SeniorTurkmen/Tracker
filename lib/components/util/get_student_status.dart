@@ -1,4 +1,4 @@
-import 'package:Tracker/models/data_model/user_data_model.dart';
+import 'package:tracker/models/data_model/user_data_model.dart';
 
 String getStatus(Status val) {
   switch (val) {
@@ -10,5 +10,7 @@ String getStatus(Status val) {
       return "Not Taking";
     case Status.next:
       return "Next Student";
+    default:
+      throw Exception('Not Found');
   }
 }

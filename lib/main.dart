@@ -1,12 +1,12 @@
-import 'package:Tracker/components/util/color_util.dart';
-import 'package:Tracker/components/util/screen_util.dart';
-import 'package:Tracker/models/driver_home/driver_home_model.dart';
-import 'package:Tracker/models/login/login_model.dart';
-import 'package:Tracker/views/splash/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_google_maps/flutter_google_maps.dart';
 import 'package:provider/provider.dart';
+import 'package:tracker/components/util/color_util.dart';
+import 'package:tracker/components/util/screen_util.dart';
+import 'package:tracker/models/driver_home/driver_home_model.dart';
+import 'package:tracker/models/login/login_model.dart';
+import 'package:tracker/views/splash/splash_view.dart';
 
 void main() {
   GoogleMap.init('AIzaSyDsWCMuFTSi9rOnkS15qEg4_DlcIzZU2ms');

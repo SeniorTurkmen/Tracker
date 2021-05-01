@@ -1,20 +1,24 @@
-import 'package:Tracker/components/util/screen_util.dart';
-import 'package:Tracker/views/driver_home/layouts/header.dart';
-import 'package:Tracker/views/driver_home/layouts/student_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
-// import model
-import 'package:Tracker/models/driver_home/driver_home_model.dart';
+import 'package:tracker/components/util/screen_util.dart';
 // import controller
-import 'package:Tracker/controllers/driver_home/driver_home_controller.dart';
+import 'package:tracker/controllers/driver_home/driver_home_controller.dart';
+// import model
+import 'package:tracker/models/driver_home/driver_home_model.dart';
+
+import 'layouts/header.dart';
+import 'layouts/student_card.dart';
 
 class DriverHomeView extends StatelessWidget {
   static const routeName = "/driver-home";
+
   @override
   Widget build(BuildContext context) {
     DriverHomeController viewController = DriverHomeController();
-    viewController.setter(context);
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      viewController.setter(context);
+    });
     return Consumer<DriverHomeModel>(
       builder: (context, viewModel, child) {
         return Scaffold(
@@ -47,9 +51,8 @@ class DriverHomeView extends StatelessWidget {
               //Student List Section
               SliverList(
                   delegate: SliverChildBuilderDelegate(
-                      (BuildContext ctx, int index) => Expanded(
-                          child: StudentCard(
-                              student: viewModel.studentData[index])),
+                      (BuildContext ctx, int index) =>
+                          StudentCard(student: viewModel.studentData[index]),
                       childCount: students.length))
             ],
           ),

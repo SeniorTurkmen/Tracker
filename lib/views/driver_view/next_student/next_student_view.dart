@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:Tracker/components/layout/appbar.dart';
-import 'package:Tracker/components/util/screen_util.dart';
-import 'package:Tracker/models/driver_home/driver_home_model.dart';
-import 'package:Tracker/components/util/map_utils.dart';
+import 'package:tracker/components/layout/appbar.dart';
+import 'package:tracker/components/util/screen_util.dart';
+import 'package:tracker/models/driver_home/driver_home_model.dart';
+import 'package:tracker/components/util/map_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';

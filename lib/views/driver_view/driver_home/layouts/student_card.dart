@@ -1,8 +1,8 @@
-import 'package:Tracker/components/util/get_student_status.dart';
-import 'package:Tracker/components/util/screen_util.dart';
-import 'package:Tracker/models/data_model/user_data_model.dart';
-import 'package:Tracker/views/student_detail/student_detail_view.dart';
 import 'package:flutter/material.dart';
+import 'package:tracker/components/util/get_student_status.dart';
+import 'package:tracker/components/util/screen_util.dart';
+import 'package:tracker/models/data_model/user_data_model.dart';
+import 'package:tracker/views/driver_view/student_detail/student_detail_view.dart';
 
 class StudentCard extends StatelessWidget {
   final Student student;
