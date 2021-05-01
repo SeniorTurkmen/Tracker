@@ -1,4 +1,4 @@
-package com.senior.Tracker
+package com.senior.tracker
 
 import io.flutter.embedding.android.FlutterActivity
 
